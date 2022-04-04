@@ -1,0 +1,14 @@
+html {
+    font-family: monospace;
+    color: rgb(83, 110, 110)
+}
+
+.chart-container-small {
+    width: 400px;
+    height: 400px;
+}
+
+.chart-container-wideL {
+    width: 900px;
+    height: 500px;
+}
