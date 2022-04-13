@@ -1,4 +1,52 @@
 window.onload = () => {
+
+
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
+    }
+
+    // COLLAPSIBLE TEXT BUTTONS //
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+
+    window.addEventListener("resize", function(event) {
+        for (i = 0; i < coll.length; i++) {
+            if (coll[i].classList.contains("active")) {
+                var content = coll[i].nextElementSibling;
+                console.log(content)
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    }, true);
+
+
+
+    ////////////
+    // GRAPHS //
+    ////////////
     const testElement = document.getElementById("chart-test");
     const testChart = new Chart(testElement, {
         type: 'doughnut',
@@ -119,23 +167,11 @@ window.onload = () => {
         }
     });
 
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    }
-
 }
+
+
 
 //this should all be in dedicated js for charts only (for name schemes to be suitable)
 
 //always set option:responsive to false, use the container for controlled responsive design
+
