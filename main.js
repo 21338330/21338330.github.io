@@ -5,15 +5,15 @@ window.onload = () => {
     showSlides();
 
     function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
     }
 
     // COLLAPSIBLE TEXT BUTTONS //
@@ -52,21 +52,27 @@ window.onload = () => {
         type: 'doughnut',
         data: {
             labels: [
-                'Five',
-                'Twenty Three',
-                'One',
-                'Twelve'
+                'Road Transport',
+                'Resuspension',
+                'Commercial Cooking',
+                'Construction',
+                'Domestic Utilities',
+                'Domestic Biomass',
+                'Other'
             ],
 
 
             datasets: [{
                 label: 'Testing numbers',
-                data: [5, 23, 1, 12],
+                data: [33, 14, 6, 28, 3, 10, 6],
                 backgroundColor: [
-                    'rgba(66, 245, 164, 1)',
-                    'rgba(66, 245, 233, 1)',
-                    'rgba(66, 188, 245, 1)',
-                    'rgba(66, 120, 245, 1)'
+                    '#D81B60',
+                    '#22A8E2',
+                    '#F9C21C',
+                    '#41C176',
+                    '#9343B9',
+                    '#DA6CCB',
+                    '#F18D3B'
                 ],
                 hoverOffset: 4
 
@@ -174,4 +180,3 @@ window.onload = () => {
 //this should all be in dedicated js for charts only (for name schemes to be suitable)
 
 //always set option:responsive to false, use the container for controlled responsive design
-
