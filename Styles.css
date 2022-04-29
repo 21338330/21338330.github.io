@@ -141,6 +141,7 @@ div.page {
     .sidebar a {
         text-align: center;
         float: none;
+        padding: 5px;
     }
 }
 /**/
